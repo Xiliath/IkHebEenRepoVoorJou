@@ -1,0 +1,11 @@
+apiVersion: v2
+name: ikbeneendemoapp-umbrella
+description: Umbrella chart for deploying Web API and CronJob
+version: 0.0.1
+dependencies:
+  - name: ikbeneendemoapp-webapi
+    version: "0.0.1"
+    repository: "file://../webapi"
+  - name: ikbeneendemoapp-cronjob
+    version: "0.0.1"
+    repository: "file://../cronjob"

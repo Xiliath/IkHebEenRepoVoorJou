@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "ikbeneendemoapp-webapi.fullname" . }}
+spec:
+  replicas: { .Values.replicaCount }
+  selector:
+    matchLabels:
+      app: {{ include "ikbeneendemoapp-webapi.name" . }}
+  template:
+    metadata:
+      labels:
+        app: {{ include "ikbeneendemoapp-webapi.name" . }}
+    spec:
+      containers:
+      - name: ikbeneendemoapp.webapi
+        image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+        imagePullPolicy: {{ .Values.image.pullPolicy }}
+        ports:
+        - containerPort: 80
+        env:
+{- range .Values.env }
+        - name: {{ .name }}
+          value: "{{ .value }}"
+{- end }

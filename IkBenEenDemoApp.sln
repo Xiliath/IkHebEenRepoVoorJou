@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IkBenEenDemoApp.WebApi", "IkBenEenDemoApp.WebApi\IkBenEenDemoApp.WebApi.csproj", "{C09A26CF-64C8-4EBF-A77A-7F484132D280}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IkBenEenDemoApp.CronJob", "IkBenEenDemoApp.CronJob\IkBenEenDemoApp.CronJob.csproj", "{C1474DD1-AA60-441E-B02C-4D8E70496ADB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C09A26CF-64C8-4EBF-A77A-7F484132D280}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C09A26CF-64C8-4EBF-A77A-7F484132D280}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C09A26CF-64C8-4EBF-A77A-7F484132D280}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C09A26CF-64C8-4EBF-A77A-7F484132D280}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C1474DD1-AA60-441E-B02C-4D8E70496ADB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C1474DD1-AA60-441E-B02C-4D8E70496ADB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C1474DD1-AA60-441E-B02C-4D8E70496ADB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C1474DD1-AA60-441E-B02C-4D8E70496ADB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

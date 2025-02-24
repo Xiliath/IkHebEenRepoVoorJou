@@ -1,0 +1,20 @@
+# Build directories
+bin/
+obj/
+out/
+
+# Visual Studio files
+.vs/
+.vscode/
+*.user
+*.suo
+
+# Dotnet local tools
+.dotnet/
+
+# NuGet
+*.nupkg
+.nuget/
+
+# Others
+*.log

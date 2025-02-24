@@ -1,0 +1,9 @@
+image:
+  repository: ghcr.io/xiliath/ikbeneendemoapp.cronjob
+  tag: "0.0.1"
+  pullPolicy: IfNotPresent
+schedule: "0 0 * * *"
+env:
+  - name: TaskName
+    value: DailyCleanup
+resources: {}

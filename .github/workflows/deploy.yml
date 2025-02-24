@@ -1,0 +1,46 @@
+name: Build, Push, and Deploy
+
+on:
+  push:
+    branches: [ main ]
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Configure Git
+        run: |
+          git config user.name "${ github.actor }"
+          git config user.email "${ github.actor }@users.noreply.github.com"
+
+      - name: Log in to GitHub Container Registry
+        uses: docker/login-action@v2
+        with:
+          registry: ghcr.io
+          username: ${ github.actor }
+          password: ${ secrets.GHCR_PAT }
+
+      - name: Build and push Web API image
+        run: |
+          docker build -t ghcr.io/xiliath/ikbeneendemoapp.webapi:0.0.1 -f IkBenEenDemoApp.WebApi/Dockerfile .
+          docker push ghcr.io/xiliath/ikbeneendemoapp.webapi:0.0.1
+
+      - name: Build and push CronJob image
+        run: |
+          docker build -t ghcr.io/xiliath/ikbeneendemoapp.cronjob:0.0.1 -f IkBenEenDemoApp.CronJob/Dockerfile .
+          docker push ghcr.io/xiliath/ikbeneendemoapp.cronjob:0.0.1
+
+      - name: Release Helm Charts
+        uses: helm/chart-releaser-action@v1.7.0
+        with:
+          skip_existing: true
+        env:
+          CR_TOKEN: ${ secrets.GITHUB_TOKEN }
